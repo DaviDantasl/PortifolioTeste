@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header>
+        <section id="perfil">
+            <img src="https://i.pinimg.com/736x/a3/2b/75/a32b75fda11a212a1a5082bf43de8f31.jpg"
+                alt="foto do desenvolvedor" width="150">
+            <div id="meunome">
+                <h1>Davi Dantas de Lima</h1>
+                <p>Desenvolvedor Web em desenvolvimento</p>
+                <hr>
+            </div>
+        </section>
+        <button id="btn-trevoso">
+            <span>🌓</span>
+            <span class="selecionado">😎</span>
+        </button>
+    </header>
+    <main>
+
+        <section id="sobremim">
+            <h2>Sobre mim</h2>
+        </section>
+
+        <section id="formacoes">
+            <h3>Formação </h3>
+            <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+        </section>
+        <br>
+        <hr>
+        <br>
+        <section id="meupeixe">
+            <section id="habilidades">
+                <h3>Minhas Habilidades</h3>
+                <ul>
+                    <li>
+                        HTML5: <progress value="80" max="100" color="blue"></progress>
+                    </li>
+                    <li>
+                        Logica de Programação: <progress value="100" max="100"></progress>
+                    </li>
+                    <li>
+                        Nivel de café <progress value="0" max="100"></progress>
+                    </li>
+                </ul>
+            </section>
+            <section id="projetos">
+                <h3>
+                    Meus projetos
+                </h3>
+                <section>
+
+                </section>
+            </section>
+
+
+            <section id="adicionar">
+                <form action="submit">
+                    <label for="tipo">Habilidade ou Projeto?</label>
+                    <select name="tipo" id="tipo" required>
+                        <option value="" selected diasabled></option>
+                        <option value="habilidade">Habilidade</option>
+                        <option value="prpjeto">Projeto</option>
+                    </select>
+
+                    <label for="nome" required>Titulo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome do Projeto ou Habilidade">
+
+                    <div id="form_projetos" hidden>
+                        <label for="descricao">Descriação(apenas em caso de projeto)</label>
+                        <textarea name="descricao" id="descricao" rows="4"></textarea>
+                        <label for="projetoConcluido">O projeto concluido</label>
+                        <input type="checkbox" id="concluido">
+                    </div>
+                    <div id="form_habilidade" hidden>
+                        <label for="nivelHabilidade">Nivel da Habilidade</label>
+                        <input type="range" id="nivelHabilidade" min="1" max="100">
+
+
+                    </div>
+                    <button type="submit" id="btn_add">Adicionar</button>
+                </form>
+            </section>
+
+
+
+
+            <section id="contato">
+                <h3>entre em contato</h3>
+                <form action="">
+                    <label for=" Nome">Nome:</label><input type="text" id="nome" placeholder="Seu Nome"><br>
+                    <br><label for="contato">Email:</label><input type="email" id="email"
+                        placeholder="Email para contato"><br>
+                    <br><label for="mensagem">Mensagem:</label><textarea rows="4" nome="mensagem" id="mensagem"
+                        placeholder="digite sua mensagem"></textarea>
+                    <br><button type="submit">Enviar</button>
+                </form>
+            </section>
+        </section>
+
+    </main>
+    <hr>
+    <br>
+    <footer>
+        <h4>conecte-se</h4>
+        <a href="https://youtube.com" target="_blank">youtube</a>
+        <p><small>&copy; 2026 - Todos os direitos reservados</small></p>
+    </footer>
+</body>
+
+</html>
