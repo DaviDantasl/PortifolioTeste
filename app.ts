@@ -1,30 +1,30 @@
 //busca elementos necessarios para o botão de dark mode
-const btn_trevoso = document.querySelector("#btn-trevoso") as HTMLButtonElement;
-const spans = btn_trevoso.querySelectorAll('span') as NodeListOf<HTMLSpanElement>;//icones do botao darkmode em forma de lista
-const trevoso = document.querySelector('body') as HTMLElement;
-const trevosinhos = document.querySelector('#meupeixe')?.querySelectorAll('section') as NodeListOf<HTMLElement>;
+const btn_trevoso = document.querySelector("#btn-trevoso") as HTMLButtonElement | null;
+const spans = btn_trevoso.querySelectorAll('span') as NodeListOf<HTMLSpanElement> | null;//icones do botao darkmode em forma de lista
+const trevoso = document.querySelector('body') as HTMLElement | null;
+const trevosinhos = document.querySelector('#meupeixe')?.querySelectorAll('section') as NodeListOf<HTMLElement> | null;
 
 //busca formulario de habilidade e projetos
-const form = document.querySelector('#projetosEhabilidades') as HTMLFormElement;
+const form = document.querySelector('#projetosEhabilidades') as HTMLFormElement | null;
 
 //busca elementos do formulario de adicionar habilidade ou projeto
-const tipo = document.querySelector('#tipo') as HTMLInputElement;//tipo de dado q vai ser inserido
-const title = document.querySelector('#nome') as HTMLInputElement;
-const skill = document.querySelector('#form_habilidade') as HTMLDivElement;//form exclusivo da habilidade
-const projeto = document.querySelector('#form_projetos') as HTMLDivElement//form exclusivo de projetos
+const tipo = document.querySelector('#tipo') as HTMLInputElement | null;//tipo de dado q vai ser inserido
+const title = document.querySelector('#nome') as HTMLInputElement | null;
+const skill = document.querySelector('#form_habilidade') as HTMLDivElement | null;//form exclusivo da habilidade
+const projeto = document.querySelector('#form_projetos') as HTMLDivElement | null;//form exclusivo de projetos
 
 //dados do formulario habilidade
-const skillLV = document.querySelector('#nivelHabilidade') as HTMLInputElement;
+const skillLV = document.querySelector('#nivelHabilidade') as HTMLInputElement | null;
 
 //dados do formulario de projetos
-const projeto_descricao = document.querySelector('#descricao') as HTMLTextAreaElement;
-const concluido = document.querySelector('#concluido');
+const projeto_descricao = document.querySelector('#descricao') as HTMLTextAreaElement | null;
+const concluido = document.querySelector('#concluido') as HTMLInputElement | null;
 
 const add = document.querySelector('#btn_add');//busca botao adicionar tarefa ou projeto
 
 //buscar elementos conteiner projeto e habilidades
-const habilidades = document.querySelector('#habilidades')?.querySelector('ul') as HTMLElement;
-const projetos = document.querySelector('#projects') as HTMLDivElement
+const habilidades = document.querySelector('#habilidades')?.querySelector('ul') as HTMLElement | null;
+const projetos = document.querySelector('#projects') as HTMLDivElement | null
     ;
 
 

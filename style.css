@@ -2,6 +2,7 @@
    1. BASE
    ========================================================= */
 * {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,6 +13,8 @@
 body {
     background-color: rgb(255, 222, 222);
     color: black;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body.trevoso {
@@ -103,6 +106,12 @@ main {
     width: 100%;
 }
 
+#sobremim,
+#formacoes,
+#meupeixe section {
+    overflow-wrap: anywhere;
+}
+
 
 /* =========================================================
    4. CARDS (habilidades, projetos, adicionar, contato)
@@ -111,7 +120,8 @@ main {
     box-shadow: 0 4px 12px rgb(89, 79, 235);
     border-radius: 12px;
     background-color: rgb(183, 188, 255);
-    padding-top: 10px;
+    padding: 10px 12px 16px;
+    /* topo, laterais, base */
 }
 
 body.trevoso #meupeixe section {
@@ -143,11 +153,19 @@ body.trevoso #meupeixe progress {
 /* =========================================================
    5. FORMULÁRIOS
    ========================================================= */
+form,
+#form_projetos,
+#form_habilidade {
+    width: 100%;
+    gap: 6px;
+    /* espaço entre label e campo */
+}
+
 form label {
     align-self: flex-start;
     font-weight: 600;
-    margin-bottom: 2%;
-    margin-top: 2%;
+    margin-top: 12px;
+    margin-bottom: 0;
 }
 
 input,
@@ -155,11 +173,15 @@ select,
 textarea {
     border-radius: 6px;
     border: solid 3px rgb(224, 164, 130);
-    padding: 2%;
+    padding: 8px 10px;
     box-shadow: 0 2px 6px black;
     align-self: flex-start;
     width: 80%;
-    margin-bottom: 2%;
+    margin-bottom: 0;
+}
+
+form button {
+    margin-top: 16px;
 }
 
 /* exceções dos campos */
@@ -215,6 +237,7 @@ textarea {
 
     #meupeixe section {
         width: 100%;
+        margin: 0;
     }
 
     #habilidades {
@@ -228,6 +251,22 @@ textarea {
 
     #contato {
         width: 100%;
+    }
+
+    input,
+    select,
+    textarea {
+        align-self: center;
+        width: 90%;
+    }
+
+    form label {
+        align-self: flex-start;
+        margin-left: 5%;
+    }
+
+    #concluido {
+        width: auto;
     }
 }
 
