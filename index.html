@@ -56,28 +56,29 @@
                 <h3>
                     Meus projetos
                 </h3>
-                <section>
+                <section id="projects">
 
                 </section>
             </section>
 
 
             <section id="adicionar">
-                <form action="submit">
+                <form action="submit" id="projetosEhabilidades">
                     <label for="tipo">Habilidade ou Projeto?</label>
                     <select name="tipo" id="tipo" required>
-                        <option value="" selected diasabled></option>
+                        <option value="" selected disabled>Selecione</option>
                         <option value="habilidade">Habilidade</option>
-                        <option value="prpjeto">Projeto</option>
+                        <option value="projeto">Projeto</option>
                     </select>
 
                     <label for="nome" required>Titulo</label>
-                    <input type="text" id="nome" name="nome" placeholder="Nome do Projeto ou Habilidade">
+                    <input autofocus type="text" id="nome" name="nome" required
+                        placeholder="Nome do Projeto ou Habilidade">
 
                     <div id="form_projetos" hidden>
                         <label for="descricao">Descriação(apenas em caso de projeto)</label>
                         <textarea name="descricao" id="descricao" rows="4"></textarea>
-                        <label for="projetoConcluido">O projeto concluido</label>
+                        <label for="concluido">O projeto concluido</label>
                         <input type="checkbox" id="concluido">
                     </div>
                     <div id="form_habilidade" hidden>
@@ -96,7 +97,7 @@
             <section id="contato">
                 <h3>entre em contato</h3>
                 <form action="">
-                    <label for=" Nome">Nome:</label><input type="text" id="nome" placeholder="Seu Nome"><br>
+                    <label for=" Nome">Nome:</label><input type="text" id="nomecontato" placeholder="Seu Nome"><br>
                     <br><label for="contato">Email:</label><input type="email" id="email"
                         placeholder="Email para contato"><br>
                     <br><label for="mensagem">Mensagem:</label><textarea rows="4" nome="mensagem" id="mensagem"

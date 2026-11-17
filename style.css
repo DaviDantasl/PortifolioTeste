@@ -1,62 +1,22 @@
-/* ===== Paleta ===== */
-:root {
-    --fundo: #f5f3ff;
-    --texto: #1e1b4b;
-    --card: #ffffff;
-    --card-borda: #e0e7ff;
-    --primaria: #6366f1;
-    --primaria-escura: #4f46e5;
-    --destaque: #f59e0b;
-    --habilidades-fundo: linear-gradient(135deg, #6366f1, #8b5cf6);
-    --sombra: 0 4px 14px rgba(79, 70, 229, 0.12);
-}
-
-body.trevoso {
-    --fundo: #0b1020;
-    --texto: #e0e7ff;
-    --card: #151b34;
-    --card-borda: #262e55;
-    --primaria: #818cf8;
-    --primaria-escura: #6366f1;
-    --destaque: #fbbf24;
-    --habilidades-fundo: linear-gradient(135deg, #4338ca, #6d28d9);
-    --sombra: 0 4px 14px rgba(0, 0, 0, 0.4);
-}
-
-/* ===== Base ===== */
+/* =========================================================
+   1. BASE
+   ========================================================= */
 * {
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0;
     padding: 0;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    min-height: 100vh;
-    padding: 16px 24px;
-    font-family: "Segoe UI", Arial, sans-serif;
-    line-height: 1.5;
-    background-color: var(--fundo);
-    color: var(--texto);
-    transition: background-color 0.3s, color 0.3s;
+    background-color: rgb(255, 222, 222);
+    color: black;
 }
 
-header,
-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-hr {
-    width: 100%;
-    border: none;
-    border-top: 2px solid var(--card-borda);
-    margin: 12px 0;
+body.trevoso {
+    background-color: darkblue;
+    color: white;
 }
 
 h1 {
@@ -64,47 +24,43 @@ h1 {
 }
 
 h2 {
-    margin: 6px 0 10px;
-    text-align: center;
-    color: var(--primaria);
-}
-
-a {
-    color: var(--primaria);
-}
-
-a:hover {
-    color: var(--destaque);
-}
-
-/* ===== Perfil ===== */
-#perfil {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 30px;
     margin-top: 10px;
-    width: fit-content;
+    margin-bottom: 10px;
+}
+
+hr {
+    width: 100%;
+}
+
+button {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================================
+   2. CABEÇALHO: PERFIL E BOTÃO DE TEMA
+   ========================================================= */
+#perfil {
+    margin-top: 10px;
+    display: flex;
 }
 
 #meunome {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 img {
-    width: 220px;
-    max-width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
+    align-self: center;
+    border: 4px solid rgb(0, 162, 255);
     border-radius: 50%;
-    border: 4px solid var(--primaria);
-    box-shadow: var(--sombra);
 }
 
-/* ===== Botão de tema ===== */
 #btn-trevoso {
     position: fixed;
     top: 16px;
@@ -112,186 +68,208 @@ img {
     z-index: 1000;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    gap: 4px;
-    padding: 4px;
-    border: 3px solid var(--primaria);
-    border-radius: 12px;
-    background: var(--card);
-    cursor: pointer;
-    box-shadow: var(--sombra);
-    transition: transform 0.2s;
-}
-
-#btn-trevoso:hover {
-    transform: scale(1.08);
-}
-
-#btn-trevoso span {
-    padding: 5px 8px;
-    border-radius: 8px;
-    font-size: 1.3rem;
-    line-height: 1;
-    pointer-events: none;
-}
-
-span.selecionado {
-    background-color: var(--destaque);
-}
-
-/* ===== Layout principal ===== */
-main {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-    align-items: stretch;
-}
-
-.largura-total {
-    grid-column: 1 / -1;
-    /* Sobre mim e Formação ocupam a linha toda, uma abaixo da outra */
-}
-
-#meupeixe {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-    align-items: stretch;
-}
-
-main section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    padding: 20px;
-    border-radius: 16px;
-    background: var(--card);
-    border: 1px solid var(--card-borda);
-    box-shadow: var(--sombra);
-}
-
-/* ===== Habilidades ===== */
-#habilidades {
-    background: var(--habilidades-fundo);
-    color: white;
-    border: none;
-    border-radius: 24px;
-}
-
-#habilidades h2 {
-    color: white;
-}
-
-#habilidades ul {
-    width: 100%;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-progress {
-    display: block;
-    width: 100%;
-    height: 12px;
-    margin-top: 4px;
-    accent-color: var(--destaque);
-}
-
-/* ===== Projetos ===== */
-#lista-projetos {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-/* ===== Formulários ===== */
-form,
-#contato {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-}
-
-form>div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-}
-
-form input[type="text"],
-form input[type="email"],
-form textarea,
-form select {
-    width: 100%;
-    padding: 8px 10px;
-    border: 2px solid var(--card-borda);
-    border-radius: 8px;
-    background: var(--fundo);
-    color: var(--texto);
-    font: inherit;
-}
-
-form textarea {
-    resize: vertical;
-}
-
-form input:focus,
-form textarea:focus,
-form select:focus {
-    outline: none;
-    border-color: var(--primaria);
-}
-
-form input[type="range"],
-form input[type="checkbox"] {
-    accent-color: var(--primaria);
-}
-
-form button {
-    padding: 8px 22px;
-    border: none;
-    border-radius: 8px;
-    background: var(--primaria);
-    color: white;
-    font: inherit;
+    width: fit-content;
+    border: 3px solid rgb(201, 180, 180);
+    border-radius: 5px;
     cursor: pointer;
     transition: transform 0.2s, background 0.2s;
 }
 
-form button:hover {
-    background: var(--primaria-escura);
-    transform: translateY(-2px);
+#btn-trevoso:hover {
+    transform: scale(1.05);
 }
 
-[hidden] {
-    display: none !important;
+#btn-trevoso span {
+    padding: 5px;
+    pointer-events: none;
+    border-radius: 5px;
+    margin: auto;
 }
 
-/* ===== Tela pequena: 1 coluna ===== */
+span.selecionado {
+    background-color: rgb(209, 204, 204);
+}
+
+
+/* =========================================================
+   3. LAYOUT PRINCIPAL
+   ========================================================= */
+main {
+    display: flex;
+}
+
+#meupeixe {
+    display: flex;
+    width: 100%;
+}
+
+
+/* =========================================================
+   4. CARDS (habilidades, projetos, adicionar, contato)
+   ========================================================= */
+#meupeixe section {
+    box-shadow: 0 4px 12px rgb(89, 79, 235);
+    border-radius: 12px;
+    background-color: rgb(183, 188, 255);
+    padding-top: 10px;
+}
+
+body.trevoso #meupeixe section {
+    background-color: rgb(99, 60, 136);
+}
+
+/* --- Habilidades --- */
+#habilidades {
+    background-color: rgb(112, 112, 248);
+    border-radius: 30px;
+}
+
+body.trevoso #meupeixe progress {
+    accent-color: yellow;
+    box-shadow: none;
+}
+
+/* --- Projetos --- */
+#projetos {
+    width: 100%;
+}
+
+#meupeixe #projects {
+    border: none;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   5. FORMULÁRIOS
+   ========================================================= */
+form label {
+    align-self: flex-start;
+    font-weight: 600;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+input,
+select,
+textarea {
+    border-radius: 6px;
+    border: solid 3px rgb(224, 164, 130);
+    padding: 2%;
+    box-shadow: 0 2px 6px black;
+    align-self: flex-start;
+    width: 80%;
+    margin-bottom: 2%;
+}
+
+/* exceções dos campos */
+#concluido {
+    box-shadow: none;
+    width: auto;
+}
+
+#nivelHabilidade {
+    box-shadow: none;
+}
+
+#contato {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* =========================================================
+   6. RESPONSIVO: CELULAR (até 768px)
+   ========================================================= */
 @media (max-width: 768px) {
-
-    main,
-    #meupeixe {
-        grid-template-columns: 1fr;
-    }
-
     #perfil {
         flex-direction: column;
+        align-items: center;
         gap: 20px;
         width: 100%;
     }
 
+    #meunome {
+        text-align: center;
+    }
+
     img {
-        width: 200px;
+        width: 300px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    main {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+    }
+
+    #meupeixe {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    #meupeixe section {
+        width: 100%;
+    }
+
+    #habilidades {
+        width: 100%;
+        padding: 1cap;
+    }
+
+    #projetos {
+        align-self: center;
+    }
+
+    #contato {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   7. RESPONSIVO: COMPUTADOR (a partir de 769px)
+   ========================================================= */
+@media (min-width: 769px) {
+    #perfil {
+        flex-direction: row;
+        gap: 30px;
+        width: fit-content;
+        align-self: center;
+    }
+
+    img {
+        width: 300px;
+        height: auto;
+    }
+
+    main {
+        flex-wrap: wrap;
+        width: 80%;
+    }
+
+    #meupeixe {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #meupeixe section {
+        width: 48%;
+        margin: 1%;
+    }
+
+    #habilidades {
+        width: auto;
+        padding-top: 1cap;
+        padding-bottom: 1cap;
+    }
+
+    #projetos {
+        align-self: start;
     }
 }

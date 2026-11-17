@@ -2,6 +2,10 @@
 const btn_trevoso = document.querySelector("#btn-trevoso") as HTMLButtonElement;
 const spans = btn_trevoso.querySelectorAll('span') as NodeListOf<HTMLSpanElement>;//icones do botao darkmode em forma de lista
 const trevoso = document.querySelector('body') as HTMLElement;
+const trevosinhos = document.querySelector('#meupeixe')?.querySelectorAll('section') as NodeListOf<HTMLElement>;
+
+//busca formulario de habilidade e projetos
+const form = document.querySelector('#projetosEhabilidades') as HTMLFormElement;
 
 //busca elementos do formulario de adicionar habilidade ou projeto
 const tipo = document.querySelector('#tipo') as HTMLInputElement;//tipo de dado q vai ser inserido
@@ -13,14 +17,15 @@ const projeto = document.querySelector('#form_projetos') as HTMLDivElement//form
 const skillLV = document.querySelector('#nivelHabilidade') as HTMLInputElement;
 
 //dados do formulario de projetos
-const projeto_descricao = document.querySelector('#descricap') as HTMLTextAreaElement;
+const projeto_descricao = document.querySelector('#descricao') as HTMLTextAreaElement;
 const concluido = document.querySelector('#concluido');
 
 const add = document.querySelector('#btn_add');//busca botao adicionar tarefa ou projeto
 
 //buscar elementos conteiner projeto e habilidades
 const habilidades = document.querySelector('#habilidades')?.querySelector('ul') as HTMLElement;
-const projetos = document.querySelector('#projetos')?.querySelector('section') as HTMLElement;
+const projetos = document.querySelector('#projects') as HTMLDivElement
+    ;
 
 
 btn_trevoso?.addEventListener('click', () => {
@@ -28,6 +33,9 @@ btn_trevoso?.addEventListener('click', () => {
     spans.forEach((span) => {
         span.classList.toggle('selecionado')
     })
+    trevosinhos.forEach((section) => {
+        section.classList.toggle('trevoso')
+    });
 });
 
 tipo?.addEventListener('change', () => {
@@ -41,34 +49,33 @@ tipo?.addEventListener('change', () => {
     }
 })
 
-add?.addEventListener('click', () => {
-    //previni refresh na pagina
-    event?.preventDefault();
-    //verifica qual opção escolhida
-    if ((tipo.value == 'habilidade')) {
-        //busca elemento exclusivo do forms habilidade
+form.addEventListener('submit', (event) => {   // MUDOU: submit do form, em vez de click do botão
+    event.preventDefault();
+
+    if (tipo.value === 'habilidade') {
         const newSkill = document.createElement('li');
-        const progresso = document.createElement("progress");
+        const progresso = document.createElement('progress');
         progresso.max = 100;
         progresso.value = Number(skillLV.value);
         newSkill.append(title.value, progresso);
         habilidades.append(newSkill);
-    } else {
-        //busca elemento exclusivo do forms projeto
+    } else if (tipo.value === 'projeto') {
         const newprojeto = document.querySelector('#descricao') as HTMLTextAreaElement;
         const terminado = document.querySelector('#concluido') as HTMLInputElement;
-        let finaltitle: string;
 
-        if (terminado.checked) {
-            finaltitle = title.value + ' ✅ -'
-        } else {
-            finaltitle = title.value + ' ❌ -'
-        }
-        const nome_projeto = document.createElement('h4') as HTMLElement;
-        const desc = document.createElement('span') as HTMLSpanElement;
+        const finaltitle = title.value + (terminado.checked ? ' ✅ -' : ' ❌ -');
 
-        desc.textContent = newprojeto.value;
+        const nome_projeto = document.createElement('h4');
         nome_projeto.textContent = finaltitle;
+
+        const desc = document.createElement('span');
+        desc.textContent = newprojeto.value;
+
         projetos.append(nome_projeto, desc);
     }
-})
+
+    form.reset();          // limpa os campos
+    skill.hidden = true;   // esconde os grupos extras de novo
+    projeto.hidden = true;
+});
+
